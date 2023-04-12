@@ -1,6 +1,14 @@
-#include "abstractindex.h"
+#include "abstract_index.h"
 
-AbstractRecordIndex2::AbstractRecordIndex2()
+
+AbstractRecordIndex::AbstractRecordIndex(const QModelIndex &idx)
+    : AbstractIndex(idx)
+{
+
+}
+
+AbstractTableIndex::AbstractTableIndex(const QModelIndex &idx)
+    : AbstractIndex(idx)
 {
 
 }

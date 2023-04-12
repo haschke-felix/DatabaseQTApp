@@ -17,8 +17,8 @@ public:
 
 protected:
     // Class is only allowed to be instanciated by derivatives
-    AbstractIndex(QModelIndex const &idx);
-    QModelIndex getModelIndex();
+    AbstractIndex(QModelIndex const &idx) : mIndex(idx) {}
+    QModelIndex getModelIndex() const {return mIndex; }
 private:
     // TODO: Determine whether it's useful to store the model index here
     // -> Model Index may change while TableIndex reamains the same
@@ -26,11 +26,11 @@ private:
 };
 
 
-class AbstractRecordIndex2 : public AbstractIndex<AbstractRecordIndex2>
+class AbstractRecordIndex : public AbstractIndex<AbstractRecordIndex>
 {
 protected:
     // Class is only allowed to be instanciated by derivatives
-    AbstractRecordIndex2(QModelIndex const &idx);
+    AbstractRecordIndex(QModelIndex const &idx);
 };
 
 class AbstractTableIndex : public AbstractIndex<AbstractTableIndex>

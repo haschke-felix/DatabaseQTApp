@@ -1,5 +1,6 @@
 add_library(libRecordView
     recordview.cpp recordview.h
+    abstract_single_item_view.h abstractsingleitemview.cpp
 )
 
 target_link_libraries(libRecordView PRIVATE libdatabasemodel Qt6::Widgets)

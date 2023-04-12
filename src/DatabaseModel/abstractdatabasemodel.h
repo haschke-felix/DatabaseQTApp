@@ -1,10 +1,12 @@
 #ifndef ABSTRACTDATABASEMODEL_H
 #define ABSTRACTDATABASEMODEL_H
 
-#include <databasetablemodel.h>
-#include <abstract_index.h>
 #include <vector>
 #include <memory.h>
+#include <QAbstractItemModel>
+
+
+#include "abstract_index.h"
 
 /// Model that models the entire database (collection of tables)
 class AbstractDatabaseModel : public QAbstractItemModel
@@ -42,20 +44,15 @@ public:
     
     
     // TODO: Implement
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override final {return index(row);}
-    
-    viinsertRows(int row, int count, const QModelIndex &parent = QModelIndex())
-    
-
-
+    // QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override final {return index(row); }
 
 
 private:
     /// Create a table-model with known DatabaseIndex
-    virtual AbstractDatabaseTableModel * getTableModel(AbstractDatabaseModelIndex const& tableId) = 0;
+    virtual AbstractDatabaseTableModel * getTableModel(AbstractTableIndex const& tableId) = 0;
 
     /// pure virtual taken over from QAbstractItemModel
-    virtual bool insertRows(int row, int count) override;
+    // virtual bool insertRows(int row, int count) override;
 
 
 

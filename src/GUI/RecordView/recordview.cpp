@@ -5,12 +5,13 @@ RecordView::RecordView()
 
 }
 
-void RecordView::setTableModel(AbstractDatabaseTableModel *model)
+void RecordView::setModel(AbstractDatabaseTableModel *model)
 {
-
+    AbstractSingleItemView::setModel(model);
+    tableModel = model;
 }
 
-void RecordView::setIndex(const QModelIndex &index)
+void RecordView::setLayout()
 {
 
 }

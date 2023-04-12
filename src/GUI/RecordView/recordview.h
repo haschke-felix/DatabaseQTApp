@@ -1,27 +1,26 @@
 #ifndef RECORDVIEW_H
 #define RECORDVIEW_H
 
-#include "databasetablemodel.h"
 #include <QWidget>
+#include "abstract_single_item_view.h"
+#include "abstractdatabasemodel.h"
 
-class RecordView : public QWidget
+// views a record
+
+class RecordView : public AbstractSingleItemView
 {
     Q_OBJECT
 public:
     RecordView();
 
-    void setTableModel(AbstractDatabaseTableModel * model);
-    void setIndex(QModelIndex const & index);
+    // Hide the setModel function in order to receive a more specific model
+    using AbstractSingleItemView::setModel;
+    void setModel(AbstractDatabaseTableModel * model);
 
-    void setReadonly();
-    bool readonly() const;
-
-signals:
-    void dataChanged();
-
+    void setLayout();
+    void onIndexChanged();
 private:
     AbstractDatabaseTableModel * tableModel;
-    QModelIndex displayIndex;
 };
 
 #endif // RECORDVIEW_H
